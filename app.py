@@ -119,7 +119,21 @@ def maintenance():
 def save_lpc():
 
     return "LPC Breakdown Saved Successfully"
+@app.route("/save_lpc", methods=["POST"])
+def save_lpc():
 
+    breakdown_date = request.form["breakdown_date"]
+    machine_name = request.form["machine_name"]
+    applicator_no = request.form["applicator_no"]
+    terminal_part_no = request.form["terminal_part_no"]
+    problem_type = request.form["problem_type"]
+    description = request.form["description"]
+
+    return f"""
+    Date : {breakdown_date}<br>
+    Machine : {machine_name}<br>
+    Problem : {problem_type}
+    """
 if __name__ == "__main__":
     app.run(debug=True)
     
