@@ -1,4 +1,5 @@
 import pymysql
+
 app = Flask(__name__)
 
 db = pymysql.connect(
@@ -7,6 +8,8 @@ db = pymysql.connect(
     password="1234",
     database="maintenance_system"
 )
+
+cursor = db.cursor()
 # Login Page
 @app.route("/")
 def login():
