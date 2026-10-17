@@ -45,6 +45,9 @@ def machine_master():
 @app.route("/operator_master")
 def operator_master():
     return render_template("operator_master.html")
-
+@app.route("/technician_master")
+def technician_master():
+    return render_template("technician_master.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
