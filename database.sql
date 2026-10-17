@@ -52,3 +52,11 @@ CREATE TABLE assy_breakdown (
     description TEXT,
     status VARCHAR(20)
 );
+CREATE TABLE user_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id VARCHAR(20),
+    username VARCHAR(50),
+    password VARCHAR(100),
+    role VARCHAR(50),
+    status VARCHAR(20)
+);
