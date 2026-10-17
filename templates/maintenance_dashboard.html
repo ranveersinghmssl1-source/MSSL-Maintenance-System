@@ -2,63 +2,78 @@
 <html>
 <head>
     <title>Maintenance Dashboard</title>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
-
 <body>
 
-<h1>Maintenance Dashboard</h1>
+<h1>MSSL Maintenance Dashboard</h1>
 
 <hr>
 
-<h2>Open Calls</h2>
+<h2>Breakdown Status</h2>
 
-<p>LPC Open Calls : 12</p>
-<p>ASSY Open Calls : 5</p>
-<p>Total Open Calls : 17</p>
+<div style="background-color:red;color:white;padding:15px;margin:10px;">
+🔴 OPEN CALLS : 5
+</div>
+
+<div style="background-color:orange;color:white;padding:15px;margin:10px;">
+🟠 PENDING CALLS : 3
+</div>
+
+<div style="background-color:green;color:white;padding:15px;margin:10px;">
+🟢 CLOSED CALLS : 12
+</div>
 
 <hr>
 
-<h2>Closed Calls</h2>
+<h2>Machine Status</h2>
 
-<p>Today Closed Calls : 8</p>
+<table border="1" width="100%">
 
-<hr>
-
-<h2>Technician Status</h2>
-
-<table border="1">
-
-<tr>
-<th>Technician</th>
+<tr bgcolor="#dddddd">
+<th>Ticket No</th>
+<th>Machine</th>
+<th>Problem</th>
 <th>Status</th>
 </tr>
 
 <tr>
-<td>Kritsada</td>
-<td>Available</td>
+<td>LPC001</td>
+<td>C&C-01</td>
+<td>Applicator Damage</td>
+<td style="background:red;color:white;">
+OPEN
+</td>
 </tr>
 
 <tr>
-<td>Milan</td>
-<td>Working</td>
+<td>LPC002</td>
+<td>MCR-01</td>
+<td>Sensor Fault</td>
+<td style="background:orange;color:white;">
+PENDING
+</td>
 </tr>
 
 <tr>
-<td>Sanjay</td>
-<td>Available</td>
+<td>LPC003</td>
+<td>USW-01</td>
+<td>Wire Jam</td>
+<td style="background:green;color:white;">
+CLOSED
+</td>
+</tr>
+
+<tr>
+<td>ASSY001</td>
+<td>CKT Tester-01</td>
+<td>CKT NG</td>
+<td style="background:red;color:white;">
+OPEN
+</td>
 </tr>
 
 </table>
-
-<hr>
-
-<h2>MTTR & MTBF</h2>
-
-<p>MTTR : 25 Min</p>
-<p>MTBF : 120 Hr</p>
 
 <hr>
 
@@ -80,98 +95,99 @@
 
 <script>
 
-// Machine Wise Graph
+// Machine Wise Breakdown
 
-const machineCtx = document.getElementById('machineChart');
+new Chart(document.getElementById('machineChart'), {
 
-new Chart(machineCtx, {
+type: 'bar',
 
-    type: 'bar',
+data: {
 
-    data: {
-        labels: [
-            'C&C',
-            'MCR',
-            'USW',
-            'KAPPA',
-            'CKT',
-            'CPG'
-        ],
+labels: [
+'C&C',
+'MCR',
+'USW',
+'KAPPA',
+'Cable Cutting',
+'CKT Tester'
+],
 
-        datasets: [{
-            label: 'Breakdown Count',
+datasets: [{
 
-            data: [12, 8, 5, 3, 7, 4],
+label: 'Breakdowns',
 
-            backgroundColor: [
-                'blue',
-                'green',
-                'orange',
-                'red',
-                'purple',
-                'gray'
-            ]
-        }]
-    }
+data: [12,8,5,3,6,4],
+
+backgroundColor: [
+'blue',
+'green',
+'orange',
+'red',
+'purple',
+'gray'
+]
+
+}]
+}
+
 });
 
 
 // Problem Wise Pareto
 
-const problemCtx = document.getElementById('problemChart');
+new Chart(document.getElementById('problemChart'), {
 
-new Chart(problemCtx, {
+type: 'bar',
 
-    type: 'bar',
+data: {
 
-    data: {
+labels: [
+'Applicator Damage',
+'Terminal Jam',
+'Sensor Fault',
+'Wire Jam',
+'Crimp NG'
+],
 
-        labels: [
-            'Applicator',
-            'Terminal Jam',
-            'Sensor Fault',
-            'Wire Jam',
-            'Crimp NG'
-        ],
+datasets: [{
 
-        datasets: [{
+label: 'Problem Count',
 
-            label: 'Problem Count',
+data: [25,20,15,10,5],
 
-            data: [25,20,15,10,5],
+backgroundColor: 'orange'
 
-            backgroundColor: 'orange'
+}]
+}
 
-        }]
-    }
 });
 
 
-// LPC vs ASSY Pie Chart
+// LPC VS ASSY
 
-const deptCtx = document.getElementById('departmentChart');
+new Chart(document.getElementById('departmentChart'), {
 
-new Chart(deptCtx, {
+type: 'pie',
 
-    type: 'pie',
+data: {
 
-    data: {
+labels: [
+'LPC',
+'ASSY'
+],
 
-        labels: [
-            'LPC',
-            'ASSY'
-        ],
+datasets: [{
 
-        datasets: [{
+data: [70,30],
 
-            data: [70,30],
+backgroundColor: [
+'blue',
+'green'
+]
 
-            backgroundColor: [
-                'blue',
-                'green'
-            ]
-        }]
-    }
+}]
+}
+
 });
 
 </script>
