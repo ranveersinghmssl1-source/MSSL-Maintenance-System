@@ -130,22 +130,47 @@ def save_lpc():
     problem_type = request.form["problem_type"]
     description = request.form["description"]
 
-    return f"""
+    sql = """
+    INSERT INTO lpc_breakdown
+    (
+        breakdown_date,
+        machine_name,
+        applicator_no,
+        terminal_part_no,
+        problem_type,
+        description,
+        status
+    )
+    VALUES
+    (%s,%s,%s,%s,%s,%s,%s)
+    """
 
-    <h2>LPC Breakdown Saved Successfully</h2>
+    values = (
+        breakdown_date,
+        machine_name,
+        applicator_no,
+        terminal_part_no,
+        problem_type,
+        description,
+        "OPEN"
+    )
 
-    Date : {breakdown_date}<br>
+    cursor.execute(sql, values)
 
-    Machine : {machine_name}<br>
+    db.commit()
 
-    Applicator : {applicator_no}<br>
+    return """
+    <h2>✅ Breakdown Saved Successfully</h2>
 
-    Terminal : {terminal_part_no}<br>
+    <a href="/lpc">
+        Add New Breakdown
+    </a>
 
-    Problem : {problem_type}<br>
+    <br><br>
 
-    Description : {description}
-
+    <a href="/maintenance">
+        Go To Dashboard
+    </a>
     """
 if __name__ == "__main__":
     app.run(debug=True)
