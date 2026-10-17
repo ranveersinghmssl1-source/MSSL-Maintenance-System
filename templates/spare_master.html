@@ -1,44 +1,305 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spare Parts Master</title>
+<title>MSSL Spare Parts Master</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f4f6f9;
+}
+
+.header{
+background:linear-gradient(90deg,#003366,#0078d7);
+color:white;
+padding:18px;
+text-align:center;
+}
+
+.container{
+width:95%;
+margin:auto;
+margin-top:15px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.section-title{
+font-size:20px;
+margin-bottom:15px;
+color:#003366;
+border-left:5px solid #0078d7;
+padding-left:10px;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:15px;
+}
+
+.field label{
+display:block;
+font-weight:bold;
+margin-bottom:5px;
+color:#003366;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:14px;
+}
+
+.button-area{
+text-align:center;
+margin-top:20px;
+}
+
+button{
+background:#0078d7;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#005ea6;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#003366;
+color:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.low{
+background:#dc3545;
+color:white;
+padding:4px 8px;
+border-radius:4px;
+}
+
+.normal{
+background:#28a745;
+color:white;
+padding:4px 8px;
+border-radius:4px;
+}
+
+.info-card{
+background:#eef6ff;
+padding:10px;
+border-left:5px solid #0078d7;
+border-radius:5px;
+margin-bottom:15px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<h1>Spare Parts Master</h1>
+<div class="header">
+<h1>MSSL Spare Parts Master</h1>
+</div>
+
+<div class="container">
+
+<div class="info-card">
+Master data for maintenance spare parts inventory.
+</div>
+
+<h2 class="section-title">
+Spare Part Information
+</h2>
 
 <form>
 
-<label>Part Number</label><br>
-<input type="text" name="part_no">
+<div class="row">
 
-<br><br>
+<div class="field">
+<label>Part Number</label>
+<input type="text" placeholder="SP001">
+</div>
 
-<label>Part Name</label><br>
-<input type="text" name="part_name">
+<div class="field">
+<label>Part Name</label>
+<input type="text" placeholder="Applicator Blade">
+</div>
 
-<br><br>
+</div>
 
-<label>Machine</label><br>
-<input type="text" name="machine">
+<div class="row">
 
-<br><br>
+<div class="field">
+<label>Category</label>
 
-<label>Current Stock</label><br>
-<input type="number" name="stock">
+<select>
+<option>Mechanical</option>
+<option>Electrical</option>
+<option>Pneumatic</option>
+<option>Sensor</option>
+<option>Applicator</option>
+</select>
 
-<br><br>
+</div>
 
-<label>Minimum Stock</label><br>
-<input type="number" name="min_stock">
+<div class="field">
+<label>Machine</label>
 
-<br><br>
+<select>
+<option>C&C-01</option>
+<option>MCR-01</option>
+<option>USW-01</option>
+<option>KAPPA-01</option>
+<option>CKT Tester-01</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+<label>Store Location</label>
+<input type="text" placeholder="Maintenance Store">
+</div>
+
+<div class="field">
+<label>Rack No</label>
+<input type="text" placeholder="R-01">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+<label>Bin No</label>
+<input type="text" placeholder="B-05">
+</div>
+
+<div class="field">
+<label>Unit</label>
+
+<select>
+<option>Pcs</option>
+<option>Set</option>
+<option>Box</option>
+<option>Roll</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+<label>Current Stock</label>
+<input type="number" placeholder="100">
+</div>
+
+<div class="field">
+<label>Minimum Stock</label>
+<input type="number" placeholder="20">
+</div>
+
+</div>
+
+<div class="button-area">
 
 <button type="submit">
-Save Part
+💾 Save Spare Part
 </button>
 
+</div>
+
 </form>
+
+<hr>
+
+<h2 class="section-title">
+Spare Inventory List
+</h2>
+
+<table>
+
+<tr>
+<th>Part No</th>
+<th>Part Name</th>
+<th>Machine</th>
+<th>Location</th>
+<th>Rack</th>
+<th>Stock</th>
+<th>Min Stock</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>SP001</td>
+<td>Applicator Blade</td>
+<td>C&C-01</td>
+<td>Store-A</td>
+<td>R-01</td>
+<td>100</td>
+<td>20</td>
+<td>
+<span class="normal">
+NORMAL
+</span>
+</td>
+</tr>
+
+<tr>
+<td>SP002</td>
+<td>Sensor</td>
+<td>MCR-01</td>
+<td>Store-A</td>
+<td>R-02</td>
+<td>5</td>
+<td>10</td>
+<td>
+<span class="low">
+LOW STOCK
+</span>
+</td>
+</tr>
+
+</table>
+
+</div>
 
 </body>
 </html>
