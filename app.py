@@ -65,5 +65,9 @@ def lpc():
 def maintenance():
     return render_template("maintenance_dashboard.html")
 
+@app.route("/user_master")
+def user_master():
+    return render_template("user_master.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
