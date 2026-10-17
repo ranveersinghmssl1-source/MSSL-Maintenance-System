@@ -70,3 +70,16 @@ CREATE TABLE maintenance_action (
     end_time DATETIME,
     status VARCHAR(20)
 );
+CREATE TABLE applicator_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    applicator_no VARCHAR(50),
+    description VARCHAR(200),
+    status VARCHAR(20)
+);
+
+CREATE TABLE terminal_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    terminal_part_no VARCHAR(50),
+    description VARCHAR(200),
+    status VARCHAR(20)
+);
