@@ -53,13 +53,9 @@ def technician_master():
 def technician_master():
     return render_template("technician_master.html") 
     
-CREATE TABLE problem_master (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    problem_code VARCHAR(20),
-    problem_name VARCHAR(100),
-    department VARCHAR(50),
-    status VARCHAR(20)
-);
+@app.route("/problem_master")
+def problem_master():
+    return render_template("problem_master.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
