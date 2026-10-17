@@ -98,3 +98,16 @@ CREATE TABLE lpc_breakdown (
     status VARCHAR(20),
     created_at DATETIME
 );
+CREATE TABLE assy_breakdown (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_no VARCHAR(30),
+    breakdown_date DATE,
+    shift_name VARCHAR(10),
+    operator_name VARCHAR(100),
+    machine_name VARCHAR(100),
+    problem_type VARCHAR(100),
+    description TEXT,
+    technician_name VARCHAR(100),
+    status VARCHAR(20),
+    created_at DATETIME
+);
