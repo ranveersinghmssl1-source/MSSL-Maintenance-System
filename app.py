@@ -43,6 +43,9 @@ def machine_master():
     return render_template("machine_master.html")
 from flask import Flask, render_template, request, redirect
 
+@app.route("/operator_master")
+def operator_master():
+    return render_template("operator_master.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
