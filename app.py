@@ -68,6 +68,13 @@ def maintenance():
 @app.route("/user_master")
 def user_master():
     return render_template("user_master.html")
+@app.route("/applicator_master")
+def applicator_master():
+    return render_template("applicator_master.html")
 
+@app.route("/terminal_master")
+def terminal_master():
+    return render_template("terminal_master.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
