@@ -1,3 +1,6 @@
+@app.route("/machine_master")
+def machine_master():
+    return render_template("machine_master.html")
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
