@@ -120,3 +120,10 @@ CREATE TABLE spare_master (
     min_stock INT,
     status VARCHAR(20)
 );
+CREATE TABLE stock_transaction (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    part_no VARCHAR(50),
+    transaction_type VARCHAR(20),
+    qty INT,
+    transaction_date DATETIME
+);
