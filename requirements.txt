@@ -1,1 +1,5 @@
-
+login.html
+admin_dashboard.html
+lpc_form.html
+assy_form.html
+maintenance_dashboard.html
