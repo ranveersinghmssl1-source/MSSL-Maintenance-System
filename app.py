@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-# =======================
+# ==========================
 # LOGIN
-# =======================
+# ==========================
 
 @app.route("/")
 def home():
@@ -32,9 +32,9 @@ def login():
     return "Invalid Login"
 
 
-# =======================
+# ==========================
 # DASHBOARD
-# =======================
+# ==========================
 
 @app.route("/admin")
 def admin():
@@ -46,18 +46,13 @@ def maintenance():
     return render_template("maintenance_dashboard.html")
 
 
-# =======================
-# BREAKDOWN FORMS
-# =======================
+# ==========================
+# LPC FORM
+# ==========================
 
 @app.route("/lpc")
 def lpc():
     return render_template("lpc_form.html")
-
-
-@app.route("/assy")
-def assy():
-    return render_template("assy_form.html")
 
 
 @app.route("/save_lpc", methods=["POST"])
@@ -71,27 +66,30 @@ def save_lpc():
     description = request.form.get("description")
 
     return f"""
-    <h2>Breakdown Saved Successfully</h2>
+    <h2>✅ LPC Breakdown Saved Successfully</h2>
 
-    Date : {breakdown_date}<br><br>
+    <b>Date :</b> {breakdown_date}<br><br>
+    <b>Machine :</b> {machine_name}<br><br>
+    <b>Applicator :</b> {applicator_no}<br><br>
+    <b>Terminal :</b> {terminal_part_no}<br><br>
+    <b>Problem :</b> {problem_type}<br><br>
+    <b>Description :</b> {description}<br><br>
 
-    Machine : {machine_name}<br><br>
-
-    Applicator : {applicator_no}<br><br>
-
-    Terminal : {terminal_part_no}<br><br>
-
-    Problem : {problem_type}<br><br>
-
-    Description : {description}<br><br>
-
-    <a href="/lpc">New Entry</a>
+    <a href="/lpc">New LPC Entry</a>
     """
 
+# ==========================
+# ASSY FORM
+# ==========================
 
-# =======================
+@app.route("/assy")
+def assy():
+    return render_template("assy_form.html")
+
+
+# ==========================
 # MASTER DATA
-# =======================
+# ==========================
 
 @app.route("/machine_master")
 def machine_master():
@@ -128,9 +126,38 @@ def terminal_master():
     return render_template("terminal_master.html")
 
 
-# =======================
+# ==========================
+# USER SAVE
+# ==========================
+
+@app.route("/save_user", methods=["POST"])
+def save_user():
+
+    employee_id = request.form.get("employee_id")
+    employee_name = request.form.get("employee_name")
+    username = request.form.get("username")
+    password = request.form.get("password")
+    department = request.form.get("department")
+    role = request.form.get("role")
+    status = request.form.get("status")
+
+    return f"""
+    <h2>✅ User Saved Successfully</h2>
+
+    Employee ID : {employee_id}<br>
+    Employee Name : {employee_name}<br>
+    Username : {username}<br>
+    Department : {department}<br>
+    Role : {role}<br>
+    Status : {status}<br><br>
+
+    <a href="/user_master">Back To User Master</a>
+    """
+
+
+# ==========================
 # INVENTORY
-# =======================
+# ==========================
 
 @app.route("/spare_master")
 def spare_master():
@@ -147,9 +174,9 @@ def spare_receive():
     return render_template("spare_receive.html")
 
 
-# =======================
-# MAINTENANCE ACTIONS
-# =======================
+# ==========================
+# MAINTENANCE
+# ==========================
 
 @app.route("/maintenance_action")
 def maintenance_action():
@@ -161,18 +188,18 @@ def rca():
     return render_template("rca_form.html")
 
 
-# =======================
+# ==========================
 # REPORTS
-# =======================
+# ==========================
 
 @app.route("/reports")
 def reports():
     return render_template("reports.html")
 
 
-# =======================
+# ==========================
 # RUN APPLICATION
-# =======================
+# ==========================
 
 if __name__ == "__main__":
     app.run(debug=True)
