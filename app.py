@@ -175,6 +175,14 @@ def save_lpc():
     @app.route("/spare_master")
 def spare_master():
     return render_template("spare_master.html")
+
+@app.route("/spare_issue")
+def spare_issue():
+    return render_template("spare_issue.html")
+
+@app.route("/spare_receive")
+def spare_receive():
+    return render_template("spare_receive.html")
     
 if __name__ == "__main__":
     app.run(debug=True)
