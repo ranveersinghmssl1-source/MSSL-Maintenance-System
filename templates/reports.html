@@ -1,94 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MSSL Breakdown Reports</title>
+<title>MSSL Maintenance Reports</title>
 
 <style>
 
 body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-    margin:0;
+font-family:Segoe UI,sans-serif;
+background:#f4f6f9;
+margin:0;
 }
 
 .header{
-    background:#003366;
-    color:white;
-    text-align:center;
-    padding:15px;
+background:#003366;
+color:white;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
 }
 
 .container{
-    width:95%;
-    margin:auto;
-    margin-top:20px;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+width:96%;
+margin:10px auto;
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
 
-.card-container{
-    display:flex;
-    gap:20px;
-    margin-bottom:20px;
+.section-title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:10px;
+color:#003366;
+}
+
+.summary{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:15px;
+margin-bottom:20px;
 }
 
 .card{
-    flex:1;
-    color:white;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
+padding:15px;
+border-radius:5px;
+color:white;
+font-weight:bold;
+text-align:center;
 }
 
 .daily{
-    background:#0078D7;
+background:#0078d7;
 }
 
 .weekly{
-    background:#28A745;
+background:#28a745;
 }
 
 .monthly{
-    background:#FF9800;
+background:#ff9800;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-th,td{
-    border:1px solid #ddd;
-    padding:10px;
-    text-align:center;
-}
-
-th{
-    background:#003366;
-    color:white;
-}
-
-button{
-    background:#0078D7;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#005EA6;
+label{
+font-weight:bold;
 }
 
 input{
-    padding:10px;
-    width:250px;
+padding:8px;
+width:150px;
+}
+
+button{
+background:#0078d7;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:4px;
+cursor:pointer;
+}
+
+button:hover{
+background:#005ea6;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th{
+background:#003366;
+color:white;
+padding:10px;
+}
+
+td{
+padding:8px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.export-section{
+margin-top:20px;
+text-align:center;
+}
+
+.export-btn{
+background:#28a745;
+margin:5px;
+padding:10px 15px;
+}
+
+.export-btn:hover{
+background:#1f7a33;
+}
+
+.back{
+margin-top:15px;
+display:inline-block;
 }
 
 </style>
@@ -98,14 +130,16 @@ input{
 <body>
 
 <div class="header">
-<h1>MSSL Maintenance Reports</h1>
+MSSL Maintenance Reports
 </div>
 
 <div class="container">
 
-<h2>Breakdown Summary</h2>
+<div class="section-title">
+Breakdown Summary
+</div>
 
-<div class="card-container">
+<div class="summary">
 
 <div class="card daily">
 Daily Report<br>
@@ -126,7 +160,9 @@ Monthly Report<br>
 
 <hr>
 
-<h2>Report Filter</h2>
+<div class="section-title">
+Report Filter
+</div>
 
 <label>From Date</label><br>
 <input type="date">
@@ -144,7 +180,9 @@ Generate Report
 
 <hr>
 
-<h2>Breakdown Report Details</h2>
+<div class="section-title">
+Breakdown Report Details
+</div>
 
 <table>
 
@@ -190,9 +228,31 @@ Generate Report
 
 </table>
 
+<div class="export-section">
+
+<button class="export-btn">
+📊 Export Breakdown Excel
+</button>
+
+<button class="export-btn">
+📈 Export RCA Excel
+</button>
+
+<button class="export-btn">
+📦 Export Inventory Excel
+</button>
+
+<button class="export-btn">
+📋 Export Monthly Report
+</button>
+
+</div>
+
 <hr>
 
-<h2>Available Reports</h2>
+<div class="section-title">
+Available Reports
+</div>
 
 <table>
 
@@ -236,11 +296,21 @@ Generate Report
 <td>Used Spare Parts History</td>
 </tr>
 
+<tr>
+<td>RCA Report</td>
+<td>Root Cause Analysis Records</td>
+</tr>
+
+<tr>
+<td>Technician Performance Report</td>
+<td>Technician Breakdown Handling</td>
+</tr>
+
 </table>
 
 <br>
 
-<a href="/admin">
+<a class="back" href="/admin">
 ⬅ Back To Dashboard
 </a>
 
