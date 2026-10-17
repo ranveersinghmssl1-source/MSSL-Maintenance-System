@@ -1,4 +1,12 @@
 import pymysql
+db = pymysql.connect(
+    host="localhost",
+    user="root",
+    password="1234",
+    database="maintenance_system"
+)
+
+cursor = db.cursor()
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
