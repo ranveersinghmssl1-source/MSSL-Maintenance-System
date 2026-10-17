@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MSSL User Master</title>
+<title>MSSL User Login Master</title>
 
 <style>
 
@@ -122,6 +122,15 @@ padding:4px 8px;
 border-radius:4px;
 }
 
+.reset-btn{
+background:#ff9800;
+color:white;
+padding:6px 10px;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+
 </style>
 
 </head>
@@ -135,7 +144,7 @@ border-radius:4px;
 <div class="container">
 
 <div class="info-card">
-Create and manage system users for LPC, ASSY, Maintenance and Admin.
+Create and manage users for LPC, ASSY, Maintenance and Admin.
 </div>
 
 <h2 class="section-title">
@@ -167,7 +176,7 @@ User Information
 
 <div class="field">
 <label>Password</label>
-<input type="password" placeholder="********">
+<input type="password" placeholder="1234">
 </div>
 
 </div>
@@ -205,7 +214,7 @@ User Information
 <div class="row">
 
 <div class="field">
-<label>Email ID</label>
+<label>Email</label>
 <input type="email" placeholder="user@mssl.com">
 </div>
 
@@ -222,11 +231,9 @@ User Information
 </div>
 
 <div class="button-area">
-
 <button type="submit">
 💾 Save User
 </button>
-
 </div>
 
 </form>
@@ -242,14 +249,19 @@ User List
 <tr>
 <th>Employee ID</th>
 <th>Name</th>
+<th>User Name</th>
+<th>Password</th>
 <th>Department</th>
 <th>Role</th>
 <th>Status</th>
+<th>Action</th>
 </tr>
 
 <tr>
 <td>EMP001</td>
 <td>Ranveer Singh</td>
+<td>ranveer</td>
+<td>1234</td>
 <td>Maintenance</td>
 <td>Admin</td>
 <td>
@@ -257,11 +269,18 @@ User List
 ACTIVE
 </span>
 </td>
+<td>
+<button class="reset-btn">
+Reset
+</button>
+</td>
 </tr>
 
 <tr>
 <td>EMP002</td>
 <td>Kritsada</td>
+<td>kritsada</td>
+<td>1234</td>
 <td>Maintenance</td>
 <td>Technician</td>
 <td>
@@ -269,17 +288,29 @@ ACTIVE
 ACTIVE
 </span>
 </td>
+<td>
+<button class="reset-btn">
+Reset
+</button>
+</td>
 </tr>
 
 <tr>
 <td>EMP003</td>
 <td>Operator A</td>
+<td>operatora</td>
+<td>1234</td>
 <td>LPC</td>
 <td>LPC Operator</td>
 <td>
 <span class="inactive">
 INACTIVE
 </span>
+</td>
+<td>
+<button class="reset-btn">
+Reset
+</button>
 </td>
 </tr>
 
