@@ -183,6 +183,10 @@ def spare_issue():
 @app.route("/spare_receive")
 def spare_receive():
     return render_template("spare_receive.html")
+
+@app.route("/rca")
+def rca():
+    return render_template("rca_form.html")
     
 if __name__ == "__main__":
     app.run(debug=True)
