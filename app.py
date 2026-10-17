@@ -128,6 +128,7 @@ def save_lpc():
     description = request.form["description"]
 
     return f"""
+
     <h2>LPC Breakdown Saved Successfully</h2>
 
     Date : {breakdown_date}<br>
@@ -141,6 +142,7 @@ def save_lpc():
     Problem : {problem_type}<br>
 
     Description : {description}
+
     """
 if __name__ == "__main__":
     app.run(debug=True)
