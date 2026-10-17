@@ -30,3 +30,15 @@ CREATE TABLE problem_master (
     department VARCHAR(50),
     status VARCHAR(20)
 );
+CREATE TABLE lpc_breakdown (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_no VARCHAR(30),
+    breakdown_date DATE,
+    shift_name VARCHAR(10),
+    machine_name VARCHAR(100),
+    applicator_no VARCHAR(50),
+    terminal_part_no VARCHAR(50),
+    problem_type VARCHAR(100),
+    description TEXT,
+    status VARCHAR(20)
+);
