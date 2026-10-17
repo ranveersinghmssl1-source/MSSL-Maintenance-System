@@ -60,3 +60,13 @@ CREATE TABLE user_master (
     role VARCHAR(50),
     status VARCHAR(20)
 );
+CREATE TABLE maintenance_action (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_no VARCHAR(30),
+    technician_name VARCHAR(100),
+    root_cause TEXT,
+    corrective_action TEXT,
+    start_time DATETIME,
+    end_time DATETIME,
+    status VARCHAR(20)
+);
