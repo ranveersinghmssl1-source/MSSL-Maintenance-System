@@ -115,10 +115,8 @@ def login():
 def maintenance():
     return render_template("maintenance_dashboard.html")
 
-@app.route("/save_lpc", methods=["POST"])
-def save_lpc():
+from flask import Flask, render_template, request, redirect
 
-    return "LPC Breakdown Saved Successfully"
 @app.route("/save_lpc", methods=["POST"])
 def save_lpc():
 
@@ -130,9 +128,19 @@ def save_lpc():
     description = request.form["description"]
 
     return f"""
+    <h2>LPC Breakdown Saved Successfully</h2>
+
     Date : {breakdown_date}<br>
+
     Machine : {machine_name}<br>
-    Problem : {problem_type}
+
+    Applicator : {applicator_no}<br>
+
+    Terminal : {terminal_part_no}<br>
+
+    Problem : {problem_type}<br>
+
+    Description : {description}
     """
 if __name__ == "__main__":
     app.run(debug=True)
