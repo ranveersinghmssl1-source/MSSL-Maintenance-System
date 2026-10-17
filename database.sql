@@ -15,3 +15,11 @@ CREATE TABLE operator_master (
     password VARCHAR(100),
     status VARCHAR(20)
 );
+CREATE TABLE technician_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tech_id VARCHAR(20),
+    technician_name VARCHAR(100),
+    skill VARCHAR(50),
+    department VARCHAR(50),
+    status VARCHAR(20)
+);
