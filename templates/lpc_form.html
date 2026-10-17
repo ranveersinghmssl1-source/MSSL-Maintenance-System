@@ -16,7 +16,7 @@ LPC Breakdown Form
 <br><br>
 
 <label>Date</label><br>
-<input type="date">
+<input type="date" name="breakdown_date">
 
 <br><br>
 
@@ -30,7 +30,7 @@ LPC Breakdown Form
 <br><br>
 
 <label>Machine</label><br>
-<select>
+<select name="machine_name">
     <option>C&C-01</option>
     <option>MCR-01</option>
     <option>USW-01</option>
@@ -41,17 +41,17 @@ LPC Breakdown Form
 <br><br>
 
 <label>Applicator No</label><br>
-<input type="text">
+<input type="text" name="applicator_no">
 
 <br><br>
 
 <label>Terminal Part No</label><br>
-<input type="text">
+<input type="text" name="terminal_part_no">
 
 <br><br>
 
 <label>Problem Type</label><br>
-<select>
+<select name="problem_type">
     <option>Applicator Damage</option>
     <option>Terminal Jam</option>
     <option>Wire Jam</option>
@@ -62,10 +62,11 @@ LPC Breakdown Form
 <br><br>
 
 <label>Description</label><br>
-<textarea rows="5" cols="40"></textarea>
+<textarea name="description"></textarea>
 
 <br><br>
 
+Submit Breakdown
 <button type="submit">
 Submit Breakdown
 </button>
