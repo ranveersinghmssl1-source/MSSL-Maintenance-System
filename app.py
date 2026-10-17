@@ -76,5 +76,9 @@ def applicator_master():
 def terminal_master():
     return render_template("terminal_master.html")
     
+@app.route("/reports")
+def reports():
+    return render_template("reports.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
