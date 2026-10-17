@@ -172,6 +172,10 @@ def save_lpc():
         Go To Dashboard
     </a>
     """
+    @app.route("/spare_master")
+def spare_master():
+    return render_template("spare_master.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
     
