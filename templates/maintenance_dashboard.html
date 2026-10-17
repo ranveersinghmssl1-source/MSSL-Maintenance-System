@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Maintenance Dashboard</title>
+    <title>MSSL Maintenance Dashboard</title>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            margin:20px;
+        }
+
+        .card{
+            padding:15px;
+            margin:10px;
+            color:white;
+            font-size:20px;
+            font-weight:bold;
+            border-radius:10px;
+        }
+
+        .open{
+            background:red;
+        }
+
+        .pending{
+            background:orange;
+        }
+
+        .closed{
+            background:green;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#dddddd;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
 <h1>MSSL Maintenance Dashboard</h1>
 
-<hr>
+<!-- Status Cards -->
 
-<h2>Breakdown Status</h2>
-
-<div style="background-color:red;color:white;padding:15px;margin:10px;">
+<div class="card open">
 🔴 OPEN CALLS : 5
 </div>
 
-<div style="background-color:orange;color:white;padding:15px;margin:10px;">
+<div class="card pending">
 🟠 PENDING CALLS : 3
 </div>
 
-<div style="background-color:green;color:white;padding:15px;margin:10px;">
+<div class="card closed">
 🟢 CLOSED CALLS : 12
 </div>
 
 <hr>
 
-<h2>Machine Status</h2>
+<h2>Live Breakdown Status</h2>
 
-<table border="1" width="100%">
+<table>
 
-<tr bgcolor="#dddddd">
+<tr>
 <th>Ticket No</th>
 <th>Machine</th>
 <th>Problem</th>
@@ -56,21 +102,44 @@ PENDING
 </tr>
 
 <tr>
-<td>LPC003</td>
-<td>USW-01</td>
-<td>Wire Jam</td>
+<td>ASSY001</td>
+<td>CKT Tester-01</td>
+<td>CKT NG</td>
 <td style="background:green;color:white;">
 CLOSED
 </td>
 </tr>
 
+</table>
+
+<hr>
+
+<h2>Technician Status</h2>
+
+<table>
+
 <tr>
-<td>ASSY001</td>
-<td>CKT Tester-01</td>
-<td>CKT NG</td>
-<td style="background:red;color:white;">
-OPEN
-</td>
+<th>Technician</th>
+<th>Current Machine</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Kritsada</td>
+<td>C&C-01</td>
+<td>Working</td>
+</tr>
+
+<tr>
+<td>Milan</td>
+<td>MCR-01</td>
+<td>Working</td>
+</tr>
+
+<tr>
+<td>Sanjay</td>
+<td>-</td>
+<td>Available</td>
 </tr>
 
 </table>
@@ -95,15 +164,15 @@ OPEN
 
 <script>
 
-// Machine Wise Breakdown
+// Machine Chart
 
 new Chart(document.getElementById('machineChart'), {
 
-type: 'bar',
+type:'bar',
 
-data: {
+data:{
 
-labels: [
+labels:[
 'C&C',
 'MCR',
 'USW',
@@ -112,13 +181,13 @@ labels: [
 'CKT Tester'
 ],
 
-datasets: [{
+datasets:[{
 
-label: 'Breakdowns',
+label:'Breakdown Count',
 
-data: [12,8,5,3,6,4],
+data:[12,8,5,3,4,7],
 
-backgroundColor: [
+backgroundColor:[
 'blue',
 'green',
 'orange',
@@ -128,20 +197,21 @@ backgroundColor: [
 ]
 
 }]
+
 }
 
 });
 
 
-// Problem Wise Pareto
+// Problem Chart
 
 new Chart(document.getElementById('problemChart'), {
 
-type: 'bar',
+type:'bar',
 
-data: {
+data:{
 
-labels: [
+labels:[
 'Applicator Damage',
 'Terminal Jam',
 'Sensor Fault',
@@ -149,15 +219,16 @@ labels: [
 'Crimp NG'
 ],
 
-datasets: [{
+datasets:[{
 
-label: 'Problem Count',
+label:'Problem Count',
 
-data: [25,20,15,10,5],
+data:[25,20,15,10,5],
 
-backgroundColor: 'orange'
+backgroundColor:'orange'
 
 }]
+
 }
 
 });
@@ -167,25 +238,26 @@ backgroundColor: 'orange'
 
 new Chart(document.getElementById('departmentChart'), {
 
-type: 'pie',
+type:'pie',
 
-data: {
+data:{
 
-labels: [
+labels:[
 'LPC',
 'ASSY'
 ],
 
-datasets: [{
+datasets:[{
 
-data: [70,30],
+data:[70,30],
 
-backgroundColor: [
+backgroundColor:[
 'blue',
 'green'
 ]
 
 }]
+
 }
 
 });
