@@ -79,6 +79,35 @@ def terminal_master():
 @app.route("/reports")
 def reports():
     return render_template("reports.html")
+from flask import Flask, render_template, request, redirect
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("login.html")
+
+@app.route("/login", methods=["POST"])
+def login():
+
+    username = request.form["username"]
+    password = request.form["password"]
+
+    # Demo Users
+
+    if username == "admin" and password == "1234":
+        return redirect("/admin")
+
+    elif username == "lpc" and password == "1234":
+        return redirect("/lpc")
+
+    elif username == "assy" and password == "1234":
+        return redirect("/assy")
+
+    elif username == "maintenance" and password == "1234":
+        return redirect("/maintenance")
+
+    return "Invalid Login"
     
 if __name__ == "__main__":
     app.run(debug=True)
