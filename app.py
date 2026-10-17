@@ -61,5 +61,9 @@ def problem_master():
 def lpc():
     return render_template("lpc_form.html")
 
+@app.route("/maintenance")
+def maintenance():
+    return render_template("maintenance_dashboard.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
