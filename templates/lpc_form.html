@@ -1,1 +1,76 @@
 LPC Breakdown Form
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LPC Breakdown Entry</title>
+</head>
+<body>
+
+<h1>LPC Breakdown Entry</h1>
+
+<form>
+
+<label>Ticket No</label><br>
+<input type="text" value="AUTO" readonly>
+
+<br><br>
+
+<label>Date</label><br>
+<input type="date">
+
+<br><br>
+
+<label>Shift</label><br>
+<select>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+</select>
+
+<br><br>
+
+<label>Machine</label><br>
+<select>
+    <option>C&C-01</option>
+    <option>MCR-01</option>
+    <option>USW-01</option>
+    <option>KAPPA-01</option>
+    <option>Cable Cutting-01</option>
+</select>
+
+<br><br>
+
+<label>Applicator No</label><br>
+<input type="text">
+
+<br><br>
+
+<label>Terminal Part No</label><br>
+<input type="text">
+
+<br><br>
+
+<label>Problem Type</label><br>
+<select>
+    <option>Applicator Damage</option>
+    <option>Terminal Jam</option>
+    <option>Wire Jam</option>
+    <option>Sensor Fault</option>
+    <option>Crimp NG</option>
+</select>
+
+<br><br>
+
+<label>Description</label><br>
+<textarea rows="5" cols="40"></textarea>
+
+<br><br>
+
+<button type="submit">
+Submit Breakdown
+</button>
+
+</form>
+
+</body>
+</html>
