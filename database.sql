@@ -111,3 +111,12 @@ CREATE TABLE assy_breakdown (
     status VARCHAR(20),
     created_at DATETIME
 );
+CREATE TABLE spare_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    part_no VARCHAR(50),
+    part_name VARCHAR(200),
+    machine_name VARCHAR(100),
+    current_stock INT,
+    min_stock INT,
+    status VARCHAR(20)
+);
