@@ -127,3 +127,13 @@ CREATE TABLE stock_transaction (
     qty INT,
     transaction_date DATETIME
 );
+CREATE TABLE rca_master (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_no VARCHAR(30),
+    machine_name VARCHAR(100),
+    problem_name VARCHAR(200),
+    root_cause TEXT,
+    corrective_action TEXT,
+    countermeasure TEXT,
+    status VARCHAR(20)
+);
