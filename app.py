@@ -1,8 +1,3 @@
-@app.route("/machine_master")
-def machine_master():
-    return render_template("machine_master.html")
-from flask import Flask, render_template, request, redirect
-
 app = Flask(__name__)
 
 # Login Page
@@ -42,6 +37,12 @@ def assy():
 @app.route("/maintenance")
 def maintenance():
     return render_template("maintenance_dashboard.html")
+    
+    @app.route("/machine_master")
+def machine_master():
+    return render_template("machine_master.html")
+from flask import Flask, render_template, request, redirect
+
 
 if __name__ == "__main__":
     app.run(debug=True)
