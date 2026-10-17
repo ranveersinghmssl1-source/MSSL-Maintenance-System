@@ -38,10 +38,9 @@ def assy():
 def maintenance():
     return render_template("maintenance_dashboard.html")
     
-    @app.route("/machine_master")
+ @app.route("/machine_master")
 def machine_master():
     return render_template("machine_master.html")
-from flask import Flask, render_template, request, redirect
 
 @app.route("/operator_master")
 def operator_master():
