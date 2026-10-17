@@ -7,6 +7,52 @@ Maintenance Dashboard
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+    <hr>
+
+<h2>Machine Wise Breakdown</h2>
+
+<canvas id="machineChart"></canvas>
+    <script>
+
+const ctx = document.getElementById('machineChart');
+
+new Chart(ctx, {
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'C&C',
+            'MCR',
+            'USW',
+            'KAPPA',
+            'Cable Cutting'
+        ],
+
+        datasets: [{
+            label: 'Breakdown',
+
+            data: [
+                12,
+                8,
+                5,
+                3,
+                2
+            ],
+
+            backgroundColor: [
+                'red',
+                'blue',
+                'green',
+                'orange',
+                'purple'
+            ]
+        }]
+    }
+
+});
+
+</script>
 <body>
 
 <h1>Maintenance Dashboard</h1>
