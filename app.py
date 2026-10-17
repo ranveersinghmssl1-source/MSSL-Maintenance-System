@@ -110,6 +110,11 @@ def login():
     return "Invalid Login"
     
     from flask import Flask, render_template, request, redirect
+
+@app.route("/save_lpc", methods=["POST"])
+def save_lpc():
+
+    return "LPC Breakdown Saved Successfully"
     
 if __name__ == "__main__":
     app.run(debug=True)
