@@ -1,1 +1,59 @@
 ASSY Breakdown Form
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASSY Breakdown Entry</title>
+</head>
+<body>
+
+<h1>ASSY Breakdown Entry</h1>
+
+<form>
+
+<label>Date</label><br>
+<input type="date">
+
+<br><br>
+
+<label>Shift</label><br>
+<select>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+</select>
+
+<br><br>
+
+<label>Machine</label><br>
+<select>
+    <option>CKT Tester-01</option>
+    <option>CKT Tester-02</option>
+    <option>CPG-01</option>
+    <option>Conveyor-01</option>
+</select>
+
+<br><br>
+
+<label>Problem Type</label><br>
+<select>
+    <option>CKT NG</option>
+    <option>Conveyor Stop</option>
+    <option>Sensor Fault</option>
+    <option>Barcode Error</option>
+</select>
+
+<br><br>
+
+<label>Description</label><br>
+<textarea rows="5" cols="40"></textarea>
+
+<br><br>
+
+<button type="submit">
+Submit Breakdown
+</button>
+
+</form>
+
+</body>
+</html>
