@@ -57,5 +57,9 @@ def technician_master():
 def problem_master():
     return render_template("problem_master.html")
 
+@app.route("/lpc")
+def lpc():
+    return render_template("lpc_form.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
