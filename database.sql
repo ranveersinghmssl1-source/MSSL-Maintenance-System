@@ -42,3 +42,13 @@ CREATE TABLE lpc_breakdown (
     description TEXT,
     status VARCHAR(20)
 );
+CREATE TABLE assy_breakdown (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ticket_no VARCHAR(30),
+    breakdown_date DATE,
+    shift_name VARCHAR(10),
+    machine_name VARCHAR(100),
+    problem_type VARCHAR(100),
+    description TEXT,
+    status VARCHAR(20)
+);
